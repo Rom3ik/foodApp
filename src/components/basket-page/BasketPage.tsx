@@ -7,8 +7,8 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
-import {Button, Text} from '@rneui/base';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import {Text} from '@rneui/base';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Observer} from 'mobx-react-lite';
 
 type FoodProp = {
@@ -86,11 +86,42 @@ const BasketPage = () => {
   return (
     <Observer>
       {() => (
-        <FlatList
-          data={foodStore.foodList}
-          renderItem={renderItem}
-          keyExtractor={item => item.name}
-        />
+        <View style={{justifyContent: 'space-between', flex: 1}}>
+          <FlatList
+            data={foodStore.foodList}
+            renderItem={renderItem}
+            keyExtractor={item => item.name}
+          />
+          {foodStore.foodList.length ? (
+            <View style={styles.footer}>
+              <View style={styles.footerItem}>
+                <Text>Items</Text>
+                <Text>{foodStore.totalOrderSum}</Text>
+              </View>
+              <View style={styles.footerItem}>
+                <Text>Delivery</Text>
+                <Text>0</Text>
+              </View>
+              <View style={styles.footerItem}>
+                <Text>Total cost</Text>
+                <Text>{foodStore.totalOrderSum}</Text>
+              </View>
+              <TouchableHighlight
+                style={styles.paymentButton}
+                onPress={() => {}}
+                underlayColor={'#fde87e'}>
+                <View style={styles.paymentButtonWrapper}>
+                  <Text style={styles.buttonText}>Go to payment</Text>
+                  <Icon
+                    style={styles.paymentIcon}
+                    name="arrow-right"
+                    size={15}
+                  />
+                </View>
+              </TouchableHighlight>
+            </View>
+          ) : null}
+        </View>
       )}
     </Observer>
   );
@@ -154,6 +185,45 @@ export const styles = StyleSheet.create({
     height: 60,
     paddingLeft: 15,
     justifyContent: 'space-between',
+  },
+  footer: {
+    display: 'flex',
+    padding: 20,
+    backgroundColor: 'white',
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
+    width: '100%',
+  },
+  footerItem: {
+    flexDirection: 'row',
+    paddingVertical: 5,
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  paymentButton: {
+    borderRadius: 10,
+    backgroundColor: 'gold',
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 15,
+  },
+  paymentButtonWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    width: '100%',
+  },
+  paymentIcon: {
+    position: 'absolute',
+    right: 25,
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  buttonText: {
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 });
 

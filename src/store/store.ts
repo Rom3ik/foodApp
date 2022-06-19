@@ -17,12 +17,21 @@ class Store {
       addFood: action,
       deleteFood: action,
       count: computed,
+      totalOrderSum: computed,
     });
   }
 
   addFood(food: IFood) {
-    this.foodList = [...this.foodList, {...food}];
-    console.log(this.foodList);
+    const isFound = this.foodList.some(element => {
+      return food.id === element.id;
+    });
+    if (!isFound) {
+      this.foodList = [...this.foodList, {...food}];
+    } else {
+      this.foodList.map(item => {
+        item.count += food.count;
+      });
+    }
   }
 
   deleteFood(id: number) {
@@ -31,6 +40,14 @@ class Store {
 
   get count() {
     return this.foodList.length;
+  }
+
+  get totalOrderSum() {
+    let totalSum;
+    this.foodList.forEach(element => {
+      totalSum = element.price * element.count;
+    });
+    return totalSum;
   }
 }
 

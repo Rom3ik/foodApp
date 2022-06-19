@@ -17,6 +17,8 @@ import BottomSheet, {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
 import Basket from '../basket/Basket';
+import FavoriteButton from '../favoriteButton/FavoriteButton';
+import {favoriteStore} from '../../store/favorite-store';
 
 type ItemParams = {
   itemParams: {
@@ -36,13 +38,11 @@ type ItemParams = {
 const ItemInfo = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
   const snapPoints = useMemo(() => ['40%', '40%', '90%'], []);
-  const handleSheetChanges = useCallback((index: number) => {
-    console.log('handleSheetChanges', index);
-  }, []);
+  const handleSheetChanges = useCallback(() => {}, []);
 
   const navigation = useNavigation();
   const {params} = useRoute<RouteProp<ItemParams>>();
-  const BottomSheetBackground = ({style}) => {
+  const BottomSheetBackground = ({style}: any) => {
     return (
       <View
         style={[
@@ -58,20 +58,17 @@ const ItemInfo = () => {
   const [foodCount, setFoodCount] = useState(1);
   const [basketValue, setBasketValue] = useState(0);
   const addToCard = () => {
-    if (basketValue === 1 || foodCount === 0) {
-      return false;
-    }
     setBasketValue(basketValue + 1);
     foodStore.addFood({
       name: params.item.name,
-      id: Math.random().toFixed(2),
+      id: params.item.id,
       image: params.item.image,
       price: params.item.price,
       count: foodCount,
     });
   };
   const decreaseFood = () => {
-    if (foodCount === 0) {
+    if (foodCount === 1) {
       return false;
     } else {
       setFoodCount(foodCount - 1);
@@ -79,7 +76,7 @@ const ItemInfo = () => {
   };
 
   const renderFooter = useCallback(
-    props => (
+    (props: any) => (
       <BottomSheetFooter {...props} bottomInset={0}>
         <View
           style={{
@@ -181,18 +178,34 @@ const ItemInfo = () => {
             <Icon name="keyboard-arrow-left" size={30} />
           </View>
         </Pressable>
-        <View
-          style={{
-            backgroundColor: '#fff',
-            width: 40,
-            height: 40,
-            borderRadius: 12,
-            margin: 15,
-            alignItems: 'center',
-            justifyContent: 'center',
-            position: 'relative',
-          }}>
-          <Basket />
+        <View style={{flexDirection: 'row', marginRight: 15, marginTop: 15}}>
+          <View
+            style={{
+              backgroundColor: '#fff',
+              width: 40,
+              height: 40,
+              borderRadius: 12,
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'relative',
+            }}>
+            <FavoriteButton
+              addToFavorite={() => favoriteStore.addToFavorite(params?.item)}
+            />
+          </View>
+          <View
+            style={{
+              backgroundColor: '#fff',
+              width: 40,
+              height: 40,
+              borderRadius: 12,
+              marginLeft: 15,
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'relative',
+            }}>
+            <Basket />
+          </View>
         </View>
       </View>
       <View style={{flex: 1, marginTop: 0}}>
@@ -233,7 +246,7 @@ const ItemInfo = () => {
                 fontWeight: 'bold',
                 paddingBottom: 10,
               }}>
-              {params?.item.price}
+              $ {params?.item.price}
             </Text>
             <Text style={{fontWeight: '300', color: '#000'}}>
               {params?.item.description}
