@@ -75,6 +75,8 @@ const ItemInfo = () => {
     }
   };
 
+  const increaseFood = () => setFoodCount(prev => prev + 1);
+
   const renderFooter = useCallback(
     (props: any) => (
       <BottomSheetFooter {...props} bottomInset={0}>
@@ -108,7 +110,7 @@ const ItemInfo = () => {
                 }}>
                 <TouchableHighlight
                   underlayColor={'white'}
-                  onPress={() => decreaseFood()}
+                  onPress={decreaseFood}
                   style={{
                     width: 25,
                     height: 35,
@@ -121,8 +123,8 @@ const ItemInfo = () => {
                 </TouchableHighlight>
                 <Text style={{fontWeight: 'bold'}}>{foodCount}</Text>
                 <TouchableHighlight
-                  underlayColor={'white'}
-                  onPress={() => setFoodCount(foodCount + 1)}
+                  underlayColor={'#cecece'}
+                  onPress={increaseFood}
                   style={{
                     width: 25,
                     height: 35,
