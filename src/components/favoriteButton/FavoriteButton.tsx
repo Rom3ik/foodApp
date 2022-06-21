@@ -6,7 +6,7 @@ export const FavoriteButton = (props: any) => {
   return (
     <Pressable onPress={() => props.addToFavorite()}>
       <View>
-        <Icon name={'heart'} size={20} />
+        <Icon name={'heart'} color={props.color} size={20} />
       </View>
     </Pressable>
   );

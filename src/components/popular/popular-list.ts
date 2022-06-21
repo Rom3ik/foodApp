@@ -1,7 +1,6 @@
 export const popular = [
   {
-    image:
-      'https://mcdonalds.ru/resize/-x1020/upload/iblock/dfa/0000_BigMac_BB_1500x1500-_4_-_1_.png',
+    image: 'https://mcdonalds.com.pk/wp-content/uploads/01-Bigmac-600x600.png',
     name: 'Big Mac',
     price: 3.39,
     description:
@@ -13,7 +12,7 @@ export const popular = [
   },
   {
     image:
-      'https://mcdonalds.co.nz/sites/mcdonalds.co.nz/files/YMAL_BURGER_QuarterPounder-Double.png',
+      'https://mcdonalds.com.pk/wp-content/uploads/010-QTR-Pounder-with-cheese-600x600.png',
     name: 'Quarter Pounder',
     price: 3.79,
     description:
@@ -25,7 +24,7 @@ export const popular = [
   },
   {
     image:
-      'https://mcdonalds.ru/resize/-x1020/upload/iblock/3ab/0000_Cheeseburger_BB_1500x1500_min.png',
+      'https://mcdonalds.com.pk/wp-content/uploads/05-Cheese-Burger-600x600.png',
     name: 'Cheeseburger',
     price: 2.3,
     description:
@@ -37,7 +36,7 @@ export const popular = [
   },
   {
     image:
-      'https://d1nqx6es26drid.cloudfront.net/app/uploads/2019/07/05231615/Buttermilk-Crispy-Chicken.png',
+      'https://mcdonalds.com.pk/wp-content/uploads/07-Spicy-chicken-Burger-600x600.png',
     name: 'Crispy Chicken',
     price: 2.39,
     description:
@@ -49,10 +48,10 @@ export const popular = [
   },
   {
     image:
-      'https://i.pinimg.com/originals/dd/bc/fb/ddbcfb6476b0de1a92eb269604183fdc.png',
-    name: 'Sausage Burrito',
+      'https://mcdonalds.com.pk/wp-content/uploads/012-McArabia-600x600.png',
+    name: 'MacArabia',
     description:
-      'Our tender, Sausage Burrito are made with all white meat chicken and no artificial colors, flavors or preservatives',
+      'One of its kind! Two grilled chicken patties (de-boned breast meat), Arabic bread, lettuce, tomatoes, onions, garlic sauce give you a unique and unforgettable taste.',
     price: 2.49,
     id: 5,
     weight: 300,
@@ -60,8 +59,7 @@ export const popular = [
     prepareTime: '9',
   },
   {
-    image:
-      'https://d1nqx6es26drid.cloudfront.net/app/uploads/2015/04/04033439/product-double-filet-o-fish.png',
+    image: 'https://mcdonalds.com.pk/wp-content/uploads/011-Fof-600x600.png',
     name: 'Filet-o-Fish',
     price: 1.39,
     description:

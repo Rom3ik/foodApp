@@ -1,9 +1,21 @@
 import React, {useState} from 'react';
-import {Image, Text, TouchableHighlight, View} from 'react-native';
+import {Image, Pressable, Text, View} from 'react-native';
 import {categories} from './categories-list';
+import {useNavigation} from '@react-navigation/native';
 
 const Categories = () => {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState<number | null>(null);
+  const navigation = useNavigation();
+  const goToCategoryList = (index: number, list: any, name?: string) => {
+    setActive(index);
+    navigation.navigate(
+      'CategoryList' as never,
+      {
+        list: list,
+        categoryName: name,
+      } as never,
+    );
+  };
   return (
     <View style={{paddingTop: 30}}>
       <Text
@@ -25,9 +37,8 @@ const Categories = () => {
           alignItems: 'center',
         }}>
         {categories.map((cat, index) => (
-          <TouchableHighlight
+          <Pressable
             key={cat.id}
-            underlayColor={'transparent'}
             style={{
               width: '30%',
               borderRadius: 10,
@@ -42,7 +53,7 @@ const Categories = () => {
               justifyContent: 'center',
             }}
             onPress={() => {
-              setActive(index);
+              goToCategoryList(index, cat.list, cat.name);
             }}>
             <View style={{alignItems: 'center'}}>
               <Image
@@ -60,7 +71,7 @@ const Categories = () => {
                 {cat.name}
               </Text>
             </View>
-          </TouchableHighlight>
+          </Pressable>
         ))}
       </View>
     </View>

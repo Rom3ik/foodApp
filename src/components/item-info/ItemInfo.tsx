@@ -41,6 +41,7 @@ const ItemInfo = () => {
   const handleSheetChanges = useCallback(() => {}, []);
 
   const navigation = useNavigation();
+
   const {params} = useRoute<RouteProp<ItemParams>>();
   const BottomSheetBackground = ({style}: any) => {
     return (
@@ -74,9 +75,15 @@ const ItemInfo = () => {
       setFoodCount(foodCount - 1);
     }
   };
-
+  const [favoriteIndex, setFavorite] = useState<boolean>(false);
+  const setFavoriteClick = () => {
+    setFavorite(prevState => !prevState);
+  };
   const increaseFood = () => setFoodCount(prev => prev + 1);
-
+  const addToFavorite = () => {
+    favoriteStore.addToFavorite(params?.item);
+    setFavoriteClick();
+  };
   const renderFooter = useCallback(
     (props: any) => (
       <BottomSheetFooter {...props} bottomInset={0}>
@@ -96,7 +103,7 @@ const ItemInfo = () => {
             <View
               style={{
                 backgroundColor: '#e7e7e7',
-                width: 90,
+                width: 120,
                 borderRadius: 12,
               }}>
               <View
@@ -108,33 +115,39 @@ const ItemInfo = () => {
                   paddingHorizontal: 5,
                   paddingVertical: 5,
                 }}>
-                <TouchableHighlight
-                  underlayColor={'white'}
+                <Pressable
                   onPress={decreaseFood}
-                  style={{
-                    width: 25,
-                    height: 35,
-                    backgroundColor: '#fff',
-                    borderRadius: 8,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
+                  style={({pressed}) => [
+                    {
+                      backgroundColor: pressed ? 'rgb(243,243,243)' : 'white',
+                    },
+                    {
+                      width: 30,
+                      height: 40,
+                      borderRadius: 8,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    },
+                  ]}>
                   <Icon2 name="minus" size={15} />
-                </TouchableHighlight>
+                </Pressable>
                 <Text style={{fontWeight: 'bold'}}>{foodCount}</Text>
-                <TouchableHighlight
-                  underlayColor={'#cecece'}
+                <Pressable
                   onPress={increaseFood}
-                  style={{
-                    width: 25,
-                    height: 35,
-                    backgroundColor: '#fff',
-                    borderRadius: 8,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
+                  style={({pressed}) => [
+                    {
+                      backgroundColor: pressed ? 'rgb(243,243,243)' : 'white',
+                    },
+                    {
+                      width: 30,
+                      height: 40,
+                      borderRadius: 8,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    },
+                  ]}>
                   <Icon2 name="plus" size={15} />
-                </TouchableHighlight>
+                </Pressable>
               </View>
             </View>
           </View>
@@ -192,7 +205,8 @@ const ItemInfo = () => {
               position: 'relative',
             }}>
             <FavoriteButton
-              addToFavorite={() => favoriteStore.addToFavorite(params?.item)}
+              color={favoriteIndex ? 'red' : 'grey'}
+              addToFavorite={addToFavorite}
             />
           </View>
           <View

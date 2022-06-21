@@ -29,7 +29,9 @@ class Store {
       this.foodList = [...this.foodList, {...food}];
     } else {
       this.foodList.map(item => {
-        item.count += food.count;
+        if (food.id === item.id) {
+          item.count += food.count;
+        }
       });
     }
   }
@@ -43,11 +45,11 @@ class Store {
   }
 
   get totalOrderSum() {
-    let totalSum;
-    this.foodList.forEach(element => {
-      totalSum = element.price * element.count;
-    });
-    return totalSum;
+    let totalSum: number;
+    totalSum = this.foodList.reduce((accumulator, object) => {
+      return accumulator + object.price * object.count;
+    }, 0);
+    return totalSum.toFixed(2);
   }
 }
 

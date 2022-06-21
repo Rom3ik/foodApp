@@ -5,7 +5,6 @@ import {Observer} from 'mobx-react-lite';
 import {Text, Card} from '@rneui/themed';
 
 export const Favorite = () => {
-  console.log('item', favoriteStore.favoriteList);
   const renderItem = ({item}: any) => (
     <View style={{padding: 40}}>
       <Card.Title>{item.name}</Card.Title>

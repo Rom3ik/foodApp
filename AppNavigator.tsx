@@ -10,6 +10,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Header from './src/components/header/Header';
 import BasketPage from './src/components/basket-page/BasketPage';
 import Favorite from './src/components/favorite/Favorite';
+import CategoryListPage from './src/components/category-list-page/CategoryListPage';
 const Tab = createBottomTabNavigator();
 const {Navigator, Screen} = createStackNavigator();
 
@@ -84,6 +85,20 @@ const AppNavigator = () => {
     <NavigationContainer>
       <Navigator screenOptions={{headerShown: false}} initialRouteName="Tabs">
         <Screen name="Tabs" component={Tabs} />
+        <Screen
+          name="CategoryList"
+          component={CategoryListPage}
+          options={{
+            headerTitleAlign: 'center',
+            headerTitleStyle: {fontWeight: 'bold', fontFamily: 'YanoneKaffee'},
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: 'transparent',
+              shadowOpacity: 0,
+              elevation: 0,
+            },
+          }}
+        />
         <Screen
           name="Favorite"
           component={Favorite}

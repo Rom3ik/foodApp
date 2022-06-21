@@ -1,11 +1,19 @@
 import React from 'react';
-import {Image, Text, TouchableHighlight, View} from 'react-native';
+import {Image, Pressable, Text, View} from 'react-native';
 import {popular} from './popular-list';
 import Icon from 'react-native-vector-icons/Feather';
 import {useNavigation} from '@react-navigation/native';
 
-const Popular: React.FC = () => {
+const Popular = () => {
   const navigation = useNavigation();
+  const navigateToFood = (pop: {}) => {
+    navigation.navigate(
+      'ItemInfo' as never,
+      {
+        item: pop,
+      } as never,
+    );
+  };
   return (
     <View style={{paddingTop: 30}}>
       <Text
@@ -27,35 +35,31 @@ const Popular: React.FC = () => {
           alignItems: 'center',
         }}>
         {popular.map(pop => (
-          <TouchableHighlight
+          <Pressable
             key={pop.id}
-            underlayColor={'transparent'}
-            style={{
-              width: '48%',
-              borderRadius: 30,
-              backgroundColor: '#ffffff',
-              marginBottom: 20,
-              height: 220,
-              position: 'relative',
-              margin: 0,
-              justifyContent: 'center',
-              shadowColor: '#f1f7f7',
-              shadowOffset: {width: 0, height: 3},
-              shadowOpacity: 0.7,
-              shadowRadius: 2,
-              elevation: 7,
-            }}
-            onPress={() => {
-              navigation.navigate(
-                'ItemInfo' as never,
-                {
-                  item: pop,
-                } as never,
-              );
-            }}>
+            style={({pressed}) => [
+              {
+                backgroundColor: pressed ? 'rgb(243,243,243)' : 'white',
+              },
+              {
+                width: '48%',
+                borderRadius: 30,
+                marginBottom: 20,
+                height: 230,
+                position: 'relative',
+                margin: 0,
+                justifyContent: 'center',
+                shadowColor: '#f1f7f7',
+                shadowOffset: {width: 0, height: 3},
+                shadowOpacity: 0.7,
+                shadowRadius: 2,
+                elevation: 7,
+              },
+            ]}
+            onPress={() => navigateToFood(pop)}>
             <View style={{alignItems: 'center', position: 'relative'}}>
               <Image
-                style={{width: 90, height: 90, marginBottom: 20}}
+                style={{width: 120, height: 120, marginBottom: 0}}
                 source={{uri: pop.image}}
               />
               <Text
@@ -85,7 +89,7 @@ const Popular: React.FC = () => {
                     fontWeight: '400',
                     color: '#000',
                   }}>
-                  {pop.price}
+                  $ {pop.price}
                 </Text>
                 <View
                   style={{
@@ -100,7 +104,7 @@ const Popular: React.FC = () => {
                 </View>
               </View>
             </View>
-          </TouchableHighlight>
+          </Pressable>
         ))}
       </View>
     </View>
