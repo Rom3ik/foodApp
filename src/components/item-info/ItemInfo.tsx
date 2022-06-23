@@ -1,12 +1,5 @@
 import React, {useCallback, useMemo, useRef, useState} from 'react';
-import {
-  Image,
-  Pressable,
-  SafeAreaView,
-  Text,
-  TouchableHighlight,
-  View,
-} from 'react-native';
+import {Image, Pressable, SafeAreaView, Text, View} from 'react-native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {foodStore} from '../../store/store';
 
@@ -178,7 +171,7 @@ const ItemInfo = () => {
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <Pressable
           onPress={() => {
-            navigation.navigate('Home' as never);
+            navigation.goBack();
           }}>
           <View
             style={{
@@ -317,98 +310,6 @@ const ItemInfo = () => {
                   </Text>
                 </View>
               </View>
-            </View>
-            <View>
-              <Text
-                style={{
-                  color: '#000',
-                  fontSize: 18,
-                  fontWeight: '700',
-                  fontFamily: 'YanoneKaffee',
-                }}>
-                Ingredients
-              </Text>
-              <View
-                style={{
-                  overflow: 'scroll',
-                  flexDirection: 'row',
-                  marginVertical: 15,
-                  justifyContent: 'flex-start',
-                }}>
-                <View
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: 10,
-                    backgroundColor: '#ffffd9',
-                    borderColor: '#ecd113',
-                    borderStyle: 'solid',
-                    borderWidth: 2,
-                    marginRight: 15,
-                    width: 40,
-                    height: 40,
-                  }}>
-                  <Image
-                    style={{width: 30, height: 30}}
-                    source={require('../../../assets/imgs/garlic.png')}
-                  />
-                </View>
-                <View
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: 10,
-                    backgroundColor: '#ffffd9',
-                    borderColor: '#ecd113',
-                    borderStyle: 'solid',
-                    borderWidth: 2,
-                    marginRight: 15,
-                    width: 40,
-                    height: 40,
-                  }}>
-                  <Image
-                    style={{width: 30, height: 30}}
-                    source={require('../../../assets/imgs/tomato.png')}
-                  />
-                </View>
-                <View
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: 10,
-                    backgroundColor: '#ffffd9',
-                    borderColor: '#ecd113',
-                    borderStyle: 'solid',
-                    borderWidth: 2,
-                    marginRight: 15,
-                    width: 40,
-                    height: 40,
-                  }}>
-                  <Image
-                    style={{width: 30, height: 30}}
-                    source={require('../../../assets/imgs/cucumber.png')}
-                  />
-                </View>
-                <View
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: 10,
-                    backgroundColor: '#ffffd9',
-                    borderColor: '#ecd113',
-                    borderStyle: 'solid',
-                    borderWidth: 2,
-                    marginRight: 15,
-                    width: 40,
-                    height: 40,
-                  }}>
-                  <Image
-                    style={{width: 30, height: 30}}
-                    source={require('../../../assets/imgs/chili-pepper.png')}
-                  />
-                </View>
-              </View>
-              <View />
             </View>
           </View>
         </BottomSheetScrollView>

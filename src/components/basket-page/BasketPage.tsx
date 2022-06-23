@@ -29,8 +29,8 @@ const BasketPage = () => {
           <View
             style={{
               flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
+              alignItems: 'flex-start',
+              justifyContent: 'flex-start',
             }}>
             <Image style={styles.image} source={{uri: item.image}} />
             <View style={styles.column}>
@@ -131,6 +131,7 @@ export const styles = StyleSheet.create({
   mainContainer: {
     padding: 20,
     alignItems: 'center',
+    width: '100%',
   },
   priceText: {
     color: '#000',
@@ -139,6 +140,8 @@ export const styles = StyleSheet.create({
     color: '#000',
     fontFamily: 'YanoneKaffee',
     fontWeight: '700',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
   listHeadContainer: {
     flexDirection: 'row',
@@ -150,6 +153,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     height: 60,
     paddingLeft: 15,
+    width: '75%',
     justifyContent: 'space-between',
   },
   listContainer: {
@@ -183,7 +187,6 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'flex-end',
     height: 60,
-    paddingLeft: 15,
     justifyContent: 'space-between',
   },
   footer: {
