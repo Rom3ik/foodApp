@@ -64,6 +64,7 @@ export const CategoryListPage = (props: any) => {
   };
   return (
     <FlatList
+      stickyHeaderHiddenOnScroll={true}
       style={styles.wrapper}
       keyExtractor={item => item.name}
       data={formatData(params.list, numColumns)}
@@ -74,9 +75,11 @@ export const CategoryListPage = (props: any) => {
 };
 
 const styles = StyleSheet.create({
+  headerMargin: {},
   wrapper: {
     flex: 1,
     marginVertical: 30,
+    marginTop: 60,
   },
   image: {
     width: 100,

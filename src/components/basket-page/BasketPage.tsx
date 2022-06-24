@@ -88,6 +88,7 @@ const BasketPage = () => {
       {() => (
         <View style={{justifyContent: 'space-between', flex: 1}}>
           <FlatList
+            style={styles.listStyle}
             data={foodStore.foodList}
             renderItem={renderItem}
             keyExtractor={item => item.name}
@@ -128,6 +129,10 @@ const BasketPage = () => {
 };
 
 export const styles = StyleSheet.create({
+  listStyle: {
+    marginVertical: 30,
+    marginTop: 60,
+  },
   mainContainer: {
     padding: 20,
     alignItems: 'center',

@@ -4,10 +4,8 @@ import {categories} from './categories-list';
 import {useNavigation} from '@react-navigation/native';
 
 const Categories = () => {
-  const [active, setActive] = useState<number | null>(null);
   const navigation = useNavigation();
   const goToCategoryList = (index: number, list: any, name?: string) => {
-    setActive(index);
     navigation.navigate(
       'CategoryList' as never,
       {
@@ -47,7 +45,7 @@ const Categories = () => {
               shadowOpacity: 0.7,
               shadowRadius: 2,
               elevation: 7,
-              backgroundColor: active === index ? '#F8C20B' : '#FFFFFF',
+              backgroundColor: '#FFFFFF',
               marginBottom: 20,
               height: 80,
               justifyContent: 'center',

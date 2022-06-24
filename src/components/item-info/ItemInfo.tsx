@@ -222,7 +222,7 @@ const ItemInfo = () => {
           source={{uri: params.item.image}}
           style={{
             width: '100%',
-            height: 300,
+            height: '55%',
             display: 'flex',
             alignSelf: 'flex-start',
           }}
@@ -268,48 +268,52 @@ const ItemInfo = () => {
                 marginVertical: 20,
                 width: '100%',
               }}>
-              <View>
-                <Text style={{fontWeight: 'bold'}}>Size</Text>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    marginTop: 5,
-                  }}>
-                  <Icon name="height" size={20} color="#000" />
-                  <Text style={{marginLeft: 5, color: '#000'}}>
-                    {params?.item.size}
-                  </Text>
-                </View>
-              </View>
-              <View>
-                <Text style={{fontWeight: 'bold'}}>Weight</Text>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    marginTop: 5,
-                  }}>
-                  <Icon2 name="weight-kilogram" size={20} color="#000" />
-                  <Text style={{marginLeft: 5, color: '#000'}}>
-                    {params?.item.weight} gramm
-                  </Text>
-                </View>
-              </View>
-              <View>
-                <Text style={{fontWeight: 'bold'}}>Prepare time</Text>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    marginTop: 5,
-                  }}>
-                  <Icon name="timer" size={20} color="#000" />
-                  <Text style={{marginLeft: 5, color: '#000'}}>
-                    {params?.item.prepareTime} min
-                  </Text>
-                </View>
-              </View>
+              {params?.item.weight && (
+                <>
+                  <View>
+                    <Text style={{fontWeight: 'bold'}}>Size</Text>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        marginTop: 5,
+                      }}>
+                      <Icon name="height" size={20} color="#000" />
+                      <Text style={{marginLeft: 5, color: '#000'}}>
+                        {params?.item.size}
+                      </Text>
+                    </View>
+                  </View>
+                  <View>
+                    <Text style={{fontWeight: 'bold'}}>Weight</Text>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        marginTop: 5,
+                      }}>
+                      <Icon2 name="weight-kilogram" size={20} color="#000" />
+                      <Text style={{marginLeft: 5, color: '#000'}}>
+                        {params?.item.weight} gramm
+                      </Text>
+                    </View>
+                  </View>
+                  <View>
+                    <Text style={{fontWeight: 'bold'}}>Prepare time</Text>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        marginTop: 5,
+                      }}>
+                      <Icon name="timer" size={20} color="#000" />
+                      <Text style={{marginLeft: 5, color: '#000'}}>
+                        {params?.item.prepareTime} min
+                      </Text>
+                    </View>
+                  </View>
+                </>
+              )}
             </View>
           </View>
         </BottomSheetScrollView>

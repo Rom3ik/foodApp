@@ -11,6 +11,7 @@ import BasketPage from './src/components/basket-page/BasketPage';
 import Favorite from './src/components/favorite/Favorite';
 import CategoryListPage from './src/components/category-list-page/CategoryListPage';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Welcome from './src/components/welcome-page/welcome';
 const Tab = createBottomTabNavigator();
 const {Navigator, Screen} = createNativeStackNavigator();
 
@@ -94,7 +95,12 @@ const AppNavigator = () => {
             backgroundColor: '#f1f1f1',
           },
         }}
-        initialRouteName="Tabs">
+        initialRouteName="Welcome">
+        <Screen
+          options={{headerShown: false}}
+          name="Welcome"
+          component={Welcome}
+        />
         <Screen options={{headerShown: false}} name="Tabs" component={Tabs} />
         <Screen name="CategoryList" component={CategoryListPage} />
         <Screen name="Favorite" component={Favorite} />
