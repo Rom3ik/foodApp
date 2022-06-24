@@ -199,6 +199,52 @@ export const categories = [
       'https://www.pngkey.com/png/full/171-1712404_mcdonalds-happy-meal.png',
     name: 'Happy Meal',
     id: 3000,
+    list: [
+      {
+        name: 'Beaf Burger',
+        image:
+          'https://mcdonalds.com.pk/wp-content/uploads/Beef-Burger-600x600.png',
+        id: 300,
+        description:
+          'Sharing is not an option! You will want this 100% pure beef, topped with onion, pickles, ketchup and mustard on a soft, fluffy bun all to yourself.',
+        price: 3.4,
+      },
+      {
+        name: 'Cheese Burger ',
+        image:
+          'https://mcdonalds.com.pk/wp-content/uploads/Cheese-burger-600x600.png',
+        id: 301,
+        description:
+          'It’s Cheesy! A legendary combo of 100% pure beef, onions, pickles, ketchup, mustard and cheese, all in a soft burger bun.',
+        price: 3.7,
+      },
+      {
+        name: 'Chicken Burger ',
+        image:
+          'https://mcdonalds.com.pk/wp-content/uploads/Chicken-Burger-1-600x600.png',
+        id: 302,
+        description:
+          'Grab one! A legendary combo of 100% pure chicken and ketchup, all in a soft burger bun to make you want to go and get one for yourself.',
+        price: 2.8,
+      },
+      {
+        name: 'Chicken McNuggets (4 pcs)',
+        image:
+          'https://mcdonalds.com.pk/wp-content/uploads/Nuggets-600x600.png',
+        id: 303,
+        description:
+          'Bite one! Our tender, juicy chicken breast, cut and seasoned in a crispy tempura coating start the fun especially when eaten with our appetizing dipping sauces options in barbecue, hot mustard or sweet and sour.',
+        price: 2.99,
+      },
+      {
+        name: 'Happy Meal Books',
+        image: 'https://mcdonalds.com.pk/wp-content/uploads/happy-books.png',
+        id: 304,
+        description:
+          'You can choose between a book or toy in every Happy Meal! We’ve partnered with Cressida Cowell, globally renowned author and illustrator of the bestselling ‘How to Train Your Dragon’ series, to bring you the ‘Treetop Twins Adventures’ — a collection of 12 hardcover books available exclusively with McDonald’s Happy Meals.',
+        price: 4.99,
+      },
+    ],
   },
   {
     image:
@@ -340,5 +386,15 @@ export const categories = [
       'https://www.pngkey.com/png/full/10-103601_food-mcdonalds-french-fries-png.png',
     name: 'Snacks & Slides',
     id: 6000,
+    list: [
+      {
+        image:
+          'https://mcdonalds.com.pk/wp-content/uploads/Medium-Fries-1-600x600.png',
+        name: 'Medium Fries',
+        description: 'World’s most famous fries!',
+        price: 1.4,
+        id: 600,
+      },
+    ],
   },
 ];

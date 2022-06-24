@@ -1,11 +1,5 @@
 import React, {useEffect} from 'react';
-import {
-  FlatList,
-  Image,
-  Pressable,
-  StyleSheet,
-  View,
-} from 'react-native';
+import {FlatList, Image, Pressable, StyleSheet, View} from 'react-native';
 import {Text} from '@rneui/base';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 
@@ -36,19 +30,22 @@ export const CategoryListPage = (props: any) => {
     navigation.navigate('ItemInfo' as never, {item} as never);
   };
   const formatData = (data: any, columns: number) => {
-    const numberOfFullRows = Math.floor(data.length / columns);
+    if (data) {
+      const numberOfFullRows = Math.floor(data.length / columns);
 
-    let numberOfElementsLastRow = data.length - numberOfFullRows * columns;
-    while (
-      numberOfElementsLastRow !== columns &&
-      numberOfElementsLastRow !== 0
-    ) {
-      data.push({key: `blank-${numberOfElementsLastRow}`, empty: true});
-      numberOfElementsLastRow++;
+      let numberOfElementsLastRow = data.length - numberOfFullRows * columns;
+      while (
+        numberOfElementsLastRow !== columns &&
+        numberOfElementsLastRow !== 0
+      ) {
+        data.push({key: `blank-${numberOfElementsLastRow}`, empty: true});
+        numberOfElementsLastRow++;
+      }
     }
 
     return data;
   };
+
   const renderData = ({item}: any) => {
     if (item.empty) {
       return <View style={[styles.item, styles.itemInvisible]} />;

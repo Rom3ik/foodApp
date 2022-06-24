@@ -164,7 +164,7 @@ const ItemInfo = () => {
         </View>
       </BottomSheetFooter>
     ),
-    [foodCount],
+    [addToCard, decreaseFood, foodCount],
   );
   return (
     <SafeAreaView style={{backgroundColor: '#ffef9f', flex: 1}}>

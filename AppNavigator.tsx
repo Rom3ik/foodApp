@@ -1,5 +1,4 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import ItemInfo from './src/components/item-info/ItemInfo';
 import Home from './src/components/Home/Home';
@@ -11,8 +10,9 @@ import Header from './src/components/header/Header';
 import BasketPage from './src/components/basket-page/BasketPage';
 import Favorite from './src/components/favorite/Favorite';
 import CategoryListPage from './src/components/category-list-page/CategoryListPage';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 const Tab = createBottomTabNavigator();
-const {Navigator, Screen} = createStackNavigator();
+const {Navigator, Screen} = createNativeStackNavigator();
 
 const Tabs = () => {
   return (
@@ -28,7 +28,7 @@ const Tabs = () => {
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({}) => {
+          tabBarIcon: () => {
             return (
               <View>
                 <Icon name="home" size={20} />
@@ -39,7 +39,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         options={{
-          tabBarIcon: ({}) => {
+          tabBarIcon: () => {
             return (
               <View>
                 <Icon name="search" size={20} />
@@ -52,7 +52,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         options={{
-          tabBarIcon: ({}) => {
+          tabBarIcon: () => {
             return (
               <View>
                 <Icon name="heart" size={20} />
@@ -65,7 +65,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         options={{
-          tabBarIcon: ({}) => {
+          tabBarIcon: () => {
             return (
               <View>
                 <Icon name="user" size={20} />
@@ -83,53 +83,27 @@ const Tabs = () => {
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Navigator screenOptions={{headerShown: false}} initialRouteName="Tabs">
-        <Screen name="Tabs" component={Tabs} />
+      <Navigator
+        screenOptions={{
+          headerShown: true,
+          headerTitleAlign: 'center',
+          headerTransparent: true,
+          headerShadowVisible: false,
+          headerTitleStyle: {fontWeight: 'bold', fontFamily: 'YanoneKaffee'},
+          headerStyle: {
+            backgroundColor: '#f1f1f1',
+          },
+        }}
+        initialRouteName="Tabs">
+        <Screen options={{headerShown: false}} name="Tabs" component={Tabs} />
+        <Screen name="CategoryList" component={CategoryListPage} />
+        <Screen name="Favorite" component={Favorite} />
         <Screen
-          name="CategoryList"
-          component={CategoryListPage}
-          options={{
-            headerTitleAlign: 'center',
-            headerTitleStyle: {fontWeight: 'bold', fontFamily: 'YanoneKaffee'},
-            headerShown: true,
-            headerStyle: {
-              backgroundColor: 'transparent',
-              shadowOpacity: 0,
-              elevation: 0,
-            },
-          }}
+          options={{headerShown: false}}
+          name="ItemInfo"
+          component={ItemInfo}
         />
-        <Screen
-          name="Favorite"
-          component={Favorite}
-          options={{
-            headerTitleAlign: 'center',
-            headerTitle: 'Favorite',
-            headerTitleStyle: {fontWeight: 'bold', fontFamily: 'YanoneKaffee'},
-            headerShown: true,
-            headerStyle: {
-              backgroundColor: 'transparent',
-              shadowOpacity: 0,
-              elevation: 0,
-            },
-          }}
-        />
-        <Screen name="ItemInfo" component={ItemInfo} />
-        <Screen
-          name="Basket"
-          component={BasketPage}
-          options={{
-            headerTitleAlign: 'center',
-            headerTitle: 'Your order',
-            headerTitleStyle: {fontWeight: 'bold', fontFamily: 'YanoneKaffee'},
-            headerShown: true,
-            headerStyle: {
-              backgroundColor: 'transparent',
-              shadowOpacity: 0,
-              elevation: 0,
-            },
-          }}
-        />
+        <Screen name="Basket" component={BasketPage} />
       </Navigator>
     </NavigationContainer>
   );
