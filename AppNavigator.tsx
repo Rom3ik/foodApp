@@ -25,13 +25,13 @@ const Tabs = () => {
       screenOptions={{
         lazy: true,
         headerShown: true,
-        header: () => <Header />,
         tabBarStyle: {paddingBottom: 5},
       }}>
       <Tab.Screen
         name="Home"
         component={Home}
         options={{
+          header: () => <Header />,
           tabBarIcon: () => {
             return (
               <View>
@@ -43,6 +43,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         options={{
+          headerTitleAlign: 'center',
           tabBarIcon: () => {
             return (
               <View>
@@ -56,6 +57,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         options={{
+          headerTitleAlign: 'center',
           tabBarIcon: () => {
             return (
               <View>
@@ -69,7 +71,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         options={{
-          headerShown: false,
+          headerTitleAlign: 'center',
           tabBarIcon: () => {
             return (
               <View>

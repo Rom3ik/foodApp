@@ -2,111 +2,114 @@ import React from 'react';
 import {SafeAreaView, View} from 'react-native';
 import {Text} from '@rneui/base';
 import {Avatar} from '@rneui/themed';
-import Icon from 'react-native-vector-icons/Ionicons';
+import IonIcon from 'react-native-vector-icons/Ionicons';
+import SimpleIcons from 'react-native-vector-icons/SimpleLineIcons';
+import OcticonIcon from 'react-native-vector-icons/Octicons';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {styles} from './styles';
 
 const Profile = () => {
   return (
     <SafeAreaView>
-      <View style={{padding: 20}}>
-        <View style={{flexDirection: 'row'}}>
-          <Avatar
-            rounded={true}
-            avatarStyle={{
-              borderColor: '#cbcbcb',
-              borderWidth: 1,
-              borderRadius: 50,
-            }}
-            source={require('../../../assets/imgs/ronald.png')}
-            size={80}
-          />
-          <View>
-            <Text>Ramazan</Text>
-            <Text>rom_3ik@bk.ru</Text>
+      <View>
+        <View
+          style={{
+            paddingVertical: 20,
+            backgroundColor: '#fff',
+            height: '100%',
+          }}>
+          {/*<View style={{flexDirection: 'row', paddingHorizontal: 20}}>*/}
+          {/*  <Avatar*/}
+          {/*    rounded={true}*/}
+          {/*    avatarStyle={{*/}
+          {/*      borderColor: '#cbcbcb',*/}
+          {/*      borderWidth: 1,*/}
+          {/*      borderRadius: 50,*/}
+          {/*    }}*/}
+          {/*    source={require('../../../assets/imgs/ronald.png')}*/}
+          {/*    size={60}*/}
+          {/*  />*/}
+          {/*  <View>*/}
+          {/*    <Text>Ramazan</Text>*/}
+          {/*    <Text>rom_3ik@bk.ru</Text>*/}
+          {/*  </View>*/}
+          {/*</View>*/}
+          <View style={styles.listItem}>
+            <View style={styles.section}>
+              <IonIcon
+                style={{marginRight: 15}}
+                name="clipboard-outline"
+                size={25}
+                color={'#000'}
+              />
+              <Text style={styles.sectionTitle}>My Orders</Text>
+            </View>
+            <IonIcon name="chevron-forward" size={25} color={'#000'} />
           </View>
-        </View>
-        <View>
-          <Text>History</Text>
-          <View
-            style={{
-              backgroundColor: '#beeaff',
-              borderRadius: 12,
-              padding: 20,
-              alignItems: 'center',
-              width: '100%',
-              justifyContent: 'center',
-            }}>
-            <View
-              style={{
-                flexDirection: 'row',
-                width: '100%',
-                justifyContent: 'center',
-              }}>
-              <View style={{alignItems: 'center', marginRight: 25}}>
-                <Text>Total orders</Text>
-                <Text>12</Text>
-              </View>
-              <View style={{alignItems: 'center', marginRight: 25}}>
-                <Text>Earned coins</Text>
-                <Text>460</Text>
-              </View>
-              <View style={{alignItems: 'center', marginRight: 0}}>
-                <Text>Basket count</Text>
-                <Text>0</Text>
-              </View>
+          <View style={styles.listItem}>
+            <View style={styles.section}>
+              <IonIcon
+                style={{marginRight: 15}}
+                name="person-outline"
+                size={25}
+                color={'#000'}
+              />
+              <Text style={styles.sectionTitle}>My Profile</Text>
             </View>
+            <IonIcon name="chevron-forward" size={25} color={'#000'} />
           </View>
-          <View>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                paddingVertical: 10,
-              }}>
-              <Text>Profile</Text>
-              <Icon name="person" size={25} color={'#000'} />
+          <View style={styles.listItem}>
+            <View style={styles.section}>
+              <SimpleIcons
+                style={{marginRight: 15}}
+                name="location-pin"
+                size={25}
+                color={'#000'}
+              />
+              <Text style={styles.sectionTitle}>My Location</Text>
             </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                paddingVertical: 10,
-              }}>
-              <Text>Notifications</Text>
-              <Icon name="notifications-outline" size={25} color={'#000'} />
+            <IonIcon name="chevron-forward" size={25} color={'#000'} />
+          </View>
+          <View style={styles.listItem}>
+            <View style={styles.section}>
+              <OcticonIcon
+                style={{marginRight: 15}}
+                name="credit-card"
+                size={25}
+                color={'#000'}
+              />
+              <Text style={styles.sectionTitle}>Payments Methods</Text>
             </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                paddingVertical: 10,
-              }}>
-              <Text>Language</Text>
-              <Icon name="earth" size={25} color={'#000'} />
+            <IonIcon name="chevron-forward" size={25} color={'#000'} />
+          </View>
+          <View style={styles.listItem}>
+            <View style={styles.section}>
+              <MaterialCommunityIcon
+                style={{marginRight: 15}}
+                name="ticket-percent-outline"
+                size={25}
+                color={'#000'}
+              />
+              <Text style={styles.sectionTitle}>My Vouchers</Text>
             </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                paddingVertical: 10,
-              }}>
-              <Text>Payment Type</Text>
-              <Icon name="ios-card" size={25} color={'#000'} />
+            <IonIcon name="chevron-forward" size={25} color={'#000'} />
+          </View>
+          <View style={styles.listItem}>
+            <View style={styles.section}>
+              <SimpleIcons
+                style={{marginRight: 15}}
+                name="bubbles"
+                size={25}
+                color={'#000'}
+              />
+              <Text style={styles.sectionTitle}>Contact Us</Text>
             </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                paddingVertical: 10,
-              }}>
-              <Text>Help</Text>
-              <Icon name="information-circle" size={25} color={'#000'} />
-            </View>
+            <IonIcon name="chevron-forward" size={25} color={'#000'} />
           </View>
         </View>
       </View>
     </SafeAreaView>
   );
 };
-
 
 export default Profile;

@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useRef, useState} from 'react';
+import React, {useMemo, useRef, useState} from 'react';
 import {Image, Pressable, SafeAreaView, Text, View} from 'react-native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {foodStore} from '../../store/store';
@@ -31,9 +31,7 @@ type ItemParams = {
 const ItemInfo = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
   const snapPoints = useMemo(() => ['40%', '40%', '90%'], []);
-
   const navigation = useNavigation();
-
   const {params} = useRoute<RouteProp<ItemParams>>();
   const BottomSheetBackground = ({style}: any) => {
     return (
@@ -195,7 +193,9 @@ const ItemInfo = () => {
               position: 'relative',
             }}>
             <FavoriteButton
-              color={favoriteStore.isActive ? 'red' : 'grey'}
+              color={
+                favoriteStore.activeStatus(params.item.id) ? 'red' : 'grey'
+              }
               addToFavorite={addToFavorite}
             />
           </View>
