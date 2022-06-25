@@ -12,6 +12,7 @@ import Favorite from './src/components/favorite/Favorite';
 import CategoryListPage from './src/components/category-list-page/CategoryListPage';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Welcome from './src/components/welcome-page/welcome';
+import Profile from './src/components/profile/Profile';
 const Tab = createBottomTabNavigator();
 const {Navigator, Screen} = createNativeStackNavigator();
 
@@ -68,6 +69,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         options={{
+          headerShown: false,
           tabBarIcon: () => {
             return (
               <View>
@@ -76,8 +78,8 @@ const Tabs = () => {
             );
           },
         }}
-        name="Account"
-        component={Settings}
+        name="Profile"
+        component={Profile}
       />
     </Tab.Navigator>
   );
@@ -111,7 +113,11 @@ const AppNavigator = () => {
           name="ItemInfo"
           component={ItemInfo}
         />
-        <Screen name="Basket" component={BasketPage} />
+        <Screen
+          name="Basket"
+          options={{title: 'Your order'}}
+          component={BasketPage}
+        />
       </Navigator>
     </NavigationContainer>
   );
