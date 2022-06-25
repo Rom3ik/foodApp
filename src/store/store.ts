@@ -14,6 +14,8 @@ class Store {
   constructor() {
     makeObservable(this, {
       foodList: observable,
+      increaseFoodCount: action,
+      decreaseFood: action,
       addFood: action,
       deleteFood: action,
       count: computed,
@@ -34,6 +36,25 @@ class Store {
         }
       });
     }
+  }
+
+  increaseFoodCount(food: IFood) {
+    this.foodList.map(item => {
+      if (food.id === item.id) {
+        item.count++;
+      }
+    });
+  }
+
+  decreaseFood(food: IFood) {
+    this.foodList.map(item => {
+      if (food.id === item.id) {
+        if (item.count === 1) {
+          return;
+        }
+        item.count--;
+      }
+    });
   }
 
   deleteFood(id: number) {

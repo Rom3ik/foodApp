@@ -31,7 +31,6 @@ type ItemParams = {
 const ItemInfo = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
   const snapPoints = useMemo(() => ['40%', '40%', '90%'], []);
-  const handleSheetChanges = useCallback(() => {}, []);
 
   const navigation = useNavigation();
 
@@ -77,94 +76,92 @@ const ItemInfo = () => {
     favoriteStore.addToFavorite(params?.item);
     setFavoriteClick();
   };
-  const renderFooter = useCallback(
-    (props: any) => (
-      <BottomSheetFooter {...props} bottomInset={0}>
-        <View
-          style={{
-            paddingTop: 20,
-            paddingBottom: 20,
-            paddingLeft: 25,
-            paddingRight: 25,
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            zIndex: 999999,
-            backgroundColor: '#fff',
-          }}>
-          <View style={{flex: 1.5}}>
+
+  const renderFooter = (props: any) => (
+    <BottomSheetFooter {...props} bottomInset={0}>
+      <View
+        style={{
+          paddingTop: 20,
+          paddingBottom: 20,
+          paddingLeft: 25,
+          paddingRight: 25,
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          zIndex: 999999,
+          backgroundColor: '#fff',
+        }}>
+        <View style={{flex: 1.5}}>
+          <View
+            style={{
+              backgroundColor: '#e7e7e7',
+              width: 120,
+              borderRadius: 12,
+            }}>
             <View
               style={{
-                backgroundColor: '#e7e7e7',
-                width: 120,
-                borderRadius: 12,
+                justifyContent: 'space-between',
+                flexDirection: 'row',
+                display: 'flex',
+                alignItems: 'center',
+                paddingHorizontal: 5,
+                paddingVertical: 5,
               }}>
-              <View
-                style={{
-                  justifyContent: 'space-between',
-                  flexDirection: 'row',
-                  display: 'flex',
-                  alignItems: 'center',
-                  paddingHorizontal: 5,
-                  paddingVertical: 5,
-                }}>
-                <Pressable
-                  onPress={decreaseFood}
-                  style={({pressed}) => [
-                    {
-                      backgroundColor: pressed ? 'rgb(243,243,243)' : 'white',
-                    },
-                    {
-                      width: 30,
-                      height: 40,
-                      borderRadius: 8,
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    },
-                  ]}>
-                  <Icon2 name="minus" size={15} />
-                </Pressable>
-                <Text style={{fontWeight: 'bold'}}>{foodCount}</Text>
-                <Pressable
-                  onPress={increaseFood}
-                  style={({pressed}) => [
-                    {
-                      backgroundColor: pressed ? 'rgb(243,243,243)' : 'white',
-                    },
-                    {
-                      width: 30,
-                      height: 40,
-                      borderRadius: 8,
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    },
-                  ]}>
-                  <Icon2 name="plus" size={15} />
-                </Pressable>
-              </View>
+              <Pressable
+                onPress={decreaseFood}
+                style={({pressed}) => [
+                  {
+                    backgroundColor: pressed ? 'rgb(243,243,243)' : 'white',
+                  },
+                  {
+                    width: 30,
+                    height: 40,
+                    borderRadius: 8,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  },
+                ]}>
+                <Icon2 name="minus" size={15} />
+              </Pressable>
+              <Text style={{fontWeight: 'bold'}}>{foodCount}</Text>
+              <Pressable
+                onPress={increaseFood}
+                style={({pressed}) => [
+                  {
+                    backgroundColor: pressed ? 'rgb(243,243,243)' : 'white',
+                  },
+                  {
+                    width: 30,
+                    height: 40,
+                    borderRadius: 8,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  },
+                ]}>
+                <Icon2 name="plus" size={15} />
+              </Pressable>
             </View>
           </View>
-          <View style={{flex: 2}}>
-            <Pressable
-              onPress={() => addToCard()}
-              style={{
-                borderRadius: 12,
-                backgroundColor: '#51D002',
-                height: 50,
-                alignItems: 'center',
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-evenly',
-                paddingHorizontal: 20,
-              }}>
-              <Icon name="shopping-cart" size={20} color="#fff" />
-              <Text style={{fontSize: 15, color: '#fff'}}>Add to card</Text>
-            </Pressable>
-          </View>
         </View>
-      </BottomSheetFooter>
-    ),
-    [addToCard, decreaseFood, foodCount],
+        <View style={{flex: 2}}>
+          <Pressable
+            onPress={addToCard}
+            style={{
+              borderRadius: 12,
+              backgroundColor: '#51D002',
+              height: 50,
+              alignItems: 'center',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-evenly',
+              paddingHorizontal: 20,
+            }}>
+            <Icon name="shopping-cart" size={20} color="#fff" />
+            <Text style={{fontSize: 15, color: '#fff'}}>Add to card</Text>
+          </Pressable>
+        </View>
+      </View>
+    </BottomSheetFooter>
   );
   return (
     <SafeAreaView style={{backgroundColor: '#ffef9f', flex: 1}}>
@@ -198,7 +195,7 @@ const ItemInfo = () => {
               position: 'relative',
             }}>
             <FavoriteButton
-              color={favoriteIndex ? 'red' : 'grey'}
+              color={favoriteStore.isActive ? 'red' : 'grey'}
               addToFavorite={addToFavorite}
             />
           </View>
@@ -231,9 +228,7 @@ const ItemInfo = () => {
       <BottomSheet
         backgroundComponent={props => <BottomSheetBackground {...props} />}
         ref={bottomSheetRef}
-        index={1}
         snapPoints={snapPoints}
-        onChange={handleSheetChanges}
         footerComponent={renderFooter}>
         <BottomSheetScrollView>
           <View style={{padding: 25}}>

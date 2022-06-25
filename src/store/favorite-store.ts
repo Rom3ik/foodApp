@@ -10,22 +10,36 @@ export interface IFood {
 }
 
 class FavoriteStore {
+  isActive = false;
   constructor() {
     makeObservable(this, {
       favoriteList: observable,
       addToFavorite: action,
       deleteFromFavorite: action,
+      activeStatus: computed,
     });
   }
 
   favoriteList: any[] = [];
 
+  get activeStatus() {
+    return this.isActive;
+  }
+
   addToFavorite(food: any) {
+    this.isActive = !this.isActive;
     const isFound = this.favoriteList.some(element => {
       return food.id === element.id;
     });
     if (!isFound) {
-      this.favoriteList = [...this.favoriteList, {...food}];
+      if (!this.isActive) {
+        this.favoriteList = [...this.favoriteList, {...food}];
+      } else {
+        this.favoriteList.filter(item => {
+          if (item.id === food.id) {
+          }
+        });
+      }
     }
   }
 

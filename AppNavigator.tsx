@@ -19,8 +19,10 @@ const Tabs = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home"
+      detachInactiveScreens={true}
       sceneContainerStyle={{backgroundColor: '#f8f6f6'}}
       screenOptions={{
+        lazy: true,
         headerShown: true,
         header: () => <Header />,
         tabBarStyle: {paddingBottom: 5},

@@ -37,6 +37,7 @@ const Categories = () => {
         {categories.map((cat, index) => (
           <Pressable
             key={cat.id}
+            removeClippedSubviews={true}
             style={{
               width: '30%',
               borderRadius: 10,
