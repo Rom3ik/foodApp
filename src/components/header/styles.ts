@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   header: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     width: '100%',
     padding: 15,
     position: 'relative',
@@ -31,6 +31,20 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 15,
     top: 15,
+  },
+  deliverText: {
+    fontSize: 12,
+    color: '#000000',
+    fontWeight: '700',
+  },
+  deliverToText: {
+    fontSize: 12,
+    color: '#727272',
+  },
+  profileImage: {
+    borderRadius: 8,
+    width: 40,
+    height: 40,
   },
 });
 

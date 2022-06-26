@@ -13,27 +13,23 @@ const Profile = () => {
     <SafeAreaView>
       <View>
         <View
-          style={{
-            paddingVertical: 20,
-            backgroundColor: '#fff',
-            height: '100%',
-          }}>
-          {/*<View style={{flexDirection: 'row', paddingHorizontal: 20}}>*/}
-          {/*  <Avatar*/}
-          {/*    rounded={true}*/}
-          {/*    avatarStyle={{*/}
-          {/*      borderColor: '#cbcbcb',*/}
-          {/*      borderWidth: 1,*/}
-          {/*      borderRadius: 50,*/}
-          {/*    }}*/}
-          {/*    source={require('../../../assets/imgs/ronald.png')}*/}
-          {/*    size={60}*/}
-          {/*  />*/}
-          {/*  <View>*/}
-          {/*    <Text>Ramazan</Text>*/}
-          {/*    <Text>rom_3ik@bk.ru</Text>*/}
-          {/*  </View>*/}
-          {/*</View>*/}
+          style={styles.mainContainer}>
+          <View style={styles.infoContainer}>
+            <Avatar
+              rounded={true}
+              avatarStyle={{
+                borderColor: '#efefef',
+                borderWidth: 1,
+                borderRadius: 50,
+              }}
+              source={require('../../../assets/imgs/ronald.png')}
+              size={75}
+            />
+            <View style={styles.userInfo}>
+              <Text style={styles.name}>Username</Text>
+              <Text style={styles.email}>useremail@gmail.com</Text>
+            </View>
+          </View>
           <View style={styles.listItem}>
             <View style={styles.section}>
               <IonIcon

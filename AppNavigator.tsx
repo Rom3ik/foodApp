@@ -43,6 +43,9 @@ const Tabs = () => {
       />
       <Tab.Screen
         options={{
+          headerStyle: {
+            backgroundColor: '#f1f1f1',
+          },
           headerTitleAlign: 'center',
           tabBarIcon: () => {
             return (
@@ -71,7 +74,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         options={{
-          headerTitleAlign: 'center',
+          headerShown: false,
           tabBarIcon: () => {
             return (
               <View>

@@ -38,8 +38,8 @@ const ItemInfo = () => {
       <View
         style={[
           {
-            backgroundColor: 'white',
-            borderRadius: 35,
+            backgroundColor: '#ffffff',
+            borderRadius: 25,
           },
           {...style},
         ]}

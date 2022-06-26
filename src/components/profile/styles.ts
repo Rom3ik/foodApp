@@ -1,6 +1,11 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
+  mainContainer: {
+    paddingVertical: 45,
+    backgroundColor: '#fff',
+    height: '100%',
+  },
   listItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -16,5 +21,23 @@ export const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontWeight: '700',
+  },
+  infoContainer: {
+    marginBottom: 30,
+    flexDirection: 'row',
+    paddingHorizontal: 20,
+    alignItems: 'center',
+  },
+  userInfo: {
+    paddingLeft: 10,
+  },
+  name: {
+    fontWeight: '700',
+    fontSize: 20,
+  },
+  email: {
+    fontSize: 14,
+    color: '#737373',
+    fontWeight: '600',
   },
 });

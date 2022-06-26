@@ -15,16 +15,15 @@ const Popular = () => {
     );
   };
   return (
-    <View style={{paddingTop: 30}}>
+    <View style={{paddingTop: 20}}>
       <Text
         style={{
-          width: 150,
-          fontSize: 24,
+          fontSize: 20,
           color: '#000',
           fontWeight: 'bold',
           fontFamily: 'YanoneKaffee',
         }}>
-        Popular
+        Most Popular
       </Text>
       <View
         style={{
