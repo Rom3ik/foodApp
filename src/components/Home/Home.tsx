@@ -1,5 +1,12 @@
-import React from 'react';
-import {SafeAreaView, ScrollView, Text, TextInput, View} from 'react-native';
+import React, { useEffect, useRef, useState } from "react";
+import {
+  FlatList,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import Categories from '../categories/Categories';
 import Popular from '../popular/Popular';
 import {styles} from './styles';

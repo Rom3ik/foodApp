@@ -64,7 +64,6 @@ export const CategoryListPage = (props: any) => {
   };
   return (
     <FlatList
-      stickyHeaderHiddenOnScroll={true}
       style={styles.wrapper}
       keyExtractor={item => item.name}
       data={formatData(params.list, numColumns)}

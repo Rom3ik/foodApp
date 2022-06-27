@@ -1,8 +1,13 @@
-import React from 'react';
-import {Image, Pressable, Text, View} from 'react-native';
-import {popular} from './popular-list';
-import Icon from 'react-native-vector-icons/Feather';
+import React, {useEffect, useState} from 'react';
+import {
+  Image,
+  Pressable,
+  SafeAreaView,
+  Text,
+  View,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import { popular } from "./popular-list";
 
 const Popular = () => {
   const navigation = useNavigation();
@@ -14,8 +19,9 @@ const Popular = () => {
       } as never,
     );
   };
+
   return (
-    <View style={{paddingTop: 20}}>
+    <SafeAreaView style={{paddingTop: 20}}>
       <Text
         style={{
           fontSize: 20,
@@ -108,7 +114,7 @@ const Popular = () => {
           </Pressable>
         ))}
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
