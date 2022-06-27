@@ -36,72 +36,74 @@ const Popular = () => {
         {popular.map(pop => (
           <Pressable
             key={pop.id}
-            style={({pressed}) => [
-              {
-                backgroundColor: pressed ? 'rgb(243,243,243)' : 'white',
-              },
-              {
-                width: '48%',
-                borderRadius: 30,
-                marginBottom: 20,
-                height: 230,
-                position: 'relative',
-                margin: 0,
-                justifyContent: 'center',
-                shadowColor: '#f1f7f7',
-                shadowOffset: {width: 0, height: 3},
-                shadowOpacity: 0.7,
-                shadowRadius: 2,
-                elevation: 7,
-              },
-            ]}
+            style={{
+              width: '48%',
+              borderRadius: 8,
+              marginBottom: 20,
+              position: 'relative',
+              margin: 0,
+              backgroundColor: '#ffffff',
+              justifyContent: 'space-between',
+              shadowColor: '#f1f7f7',
+              shadowOffset: {width: 0, height: 3},
+              shadowOpacity: 0.7,
+              shadowRadius: 2,
+              elevation: 7,
+            }}
             onPress={() => navigateToFood(pop)}>
-            <View style={{alignItems: 'center', position: 'relative'}}>
+            <View
+              style={{
+                alignItems: 'center',
+                padding: 10,
+                height: 200,
+              }}>
               <Image
-                style={{width: 120, height: 120, marginBottom: 0}}
+                style={{
+                  width: '100%',
+                  height: 120,
+                  resizeMode: 'cover',
+                  borderRadius: 8,
+                }}
                 source={{uri: pop.image}}
               />
-              <Text
+              <View
                 style={{
-                  fontSize: 18,
-                  textAlign: 'center',
-                  fontWeight: 'bold',
-                  color: '#000',
-                  paddingBottom: 10,
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  width: '100%',
+                  paddingVertical: 10,
                 }}>
-                {pop.name}
-              </Text>
+                <Text
+                  style={{
+                    width: 80,
+                    fontSize: 16,
+                    textAlign: 'left',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    fontWeight: 'bold',
+                    color: '#000',
+                  }}>
+                  {pop.name}
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 12,
+                    textAlign: 'left',
+                    fontWeight: 'bold',
+                    color: '#000',
+                  }}>
+                  $ {pop.price}
+                </Text>
+              </View>
               <View
                 style={{
                   display: 'flex',
                   flexDirection: 'row',
                   width: '100%',
-                  paddingLeft: 10,
-                  paddingRight: 10,
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                }}>
-                <Text
-                  style={{
-                    fontSize: 15,
-                    textAlign: 'center',
-                    fontWeight: '400',
-                    color: '#000',
-                  }}>
-                  $ {pop.price}
-                </Text>
-                <View
-                  style={{
-                    height: 40,
-                    width: 40,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: 'rgba(179,255,163,0.34)',
-                    borderRadius: 10,
-                  }}>
-                  <Icon name="shopping-cart" size={20} color="#07C619" />
-                </View>
-              </View>
+                }}
+              />
             </View>
           </Pressable>
         ))}

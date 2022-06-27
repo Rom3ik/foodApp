@@ -30,7 +30,7 @@ type ItemParams = {
 
 const ItemInfo = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
-  const snapPoints = useMemo(() => ['40%', '40%', '90%'], []);
+  const snapPoints = useMemo(() => ['55%', '55%', '90%'], []);
   const navigation = useNavigation();
   const {params} = useRoute<RouteProp<ItemParams>>();
   const BottomSheetBackground = ({style}: any) => {
@@ -162,7 +162,7 @@ const ItemInfo = () => {
     </BottomSheetFooter>
   );
   return (
-    <SafeAreaView style={{backgroundColor: '#ffef9f', flex: 1}}>
+    <SafeAreaView style={{backgroundColor: 'transparent', flex: 1}}>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <Pressable
           onPress={() => {
@@ -219,7 +219,11 @@ const ItemInfo = () => {
           source={{uri: params.item.image}}
           style={{
             width: '100%',
-            height: '55%',
+            height: '60%',
+            resizeMode: 'stretch',
+            zIndex: -1,
+            top: -70,
+            bottom: 0,
             display: 'flex',
             alignSelf: 'flex-start',
           }}
