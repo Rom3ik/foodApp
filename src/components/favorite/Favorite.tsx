@@ -3,6 +3,7 @@ import {FlatList, Image, View} from 'react-native';
 import {favoriteStore} from '../../store/favorite-store';
 import {Observer} from 'mobx-react-lite';
 import {Text, Card} from '@rneui/themed';
+import { IFood } from "../../interfaces/food";
 
 export const Favorite = () => {
   const renderItem = ({item}: any) => (
@@ -12,9 +13,9 @@ export const Favorite = () => {
         <Image
           style={{width: '100%', height: 100}}
           resizeMode="contain"
-          source={{uri: item.image}}
+          source={{uri: item.strMealThumb}}
         />
-        <Text>{item.description}</Text>
+        <Text>{item.strInstructions}</Text>
       </View>
     </View>
   );
@@ -25,7 +26,7 @@ export const Favorite = () => {
           <FlatList
             data={favoriteStore.favoriteList}
             renderItem={renderItem}
-            keyExtractor={item => item.name}
+            keyExtractor={item => item.idMeal}
           />
         </View>
       )}

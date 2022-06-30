@@ -40,7 +40,7 @@ class Store {
 
   increaseFoodCount(food: IFood) {
     this.foodList.map(item => {
-      if (food.id === item.id) {
+      if (food.id === item.idMeal) {
         item.count++;
       }
     });
@@ -48,7 +48,7 @@ class Store {
 
   decreaseFood(food: IFood) {
     this.foodList.map(item => {
-      if (food.id === item.id) {
+      if (food.id === item.idMeal) {
         if (item.count === 1) {
           return;
         }
