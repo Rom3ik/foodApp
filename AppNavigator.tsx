@@ -10,6 +10,7 @@ import Favorite from './src/components/favorite/Favorite';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Welcome from './src/components/welcome-page/welcome';
 import Profile from './src/components/profile/Profile';
+import MoviePage from "./src/components/movie-page/MoviePage";
 const Tab = createBottomTabNavigator();
 const {Navigator, Screen} = createNativeStackNavigator();
 
@@ -106,6 +107,11 @@ const AppNavigator = () => {
           options={{headerShown: false}}
           name="Welcome"
           component={Welcome}
+        />
+        <Screen
+          options={{headerShown: true}}
+          name="MoviePage"
+          component={MoviePage}
         />
         <Screen options={{headerShown: false}} name="Tabs" component={Tabs} />
         <Screen name="Favorite" component={Favorite} />

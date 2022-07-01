@@ -2,11 +2,13 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   moviePoster: {
-    width: 143,
-    height: 212,
+    width: 84,
+    height: 128,
     borderRadius: 5,
+    marginRight: 10,
   },
   movieContainer: {
+    flexDirection: 'row',
     width: 170,
     padding: 20,
   },
@@ -41,12 +43,12 @@ export const styles = StyleSheet.create({
     width: 150,
     lineHeight: 18,
     fontSize: 14,
-    paddingVertical: 6,
   },
   ratingText: {
     color: '#9C9C9C',
     fontFamily: 'Mulish-Bold',
     fontWeight: '400',
+    paddingVertical: 6,
   },
   sliderHeaderText: {
     fontStyle: 'normal',
@@ -55,5 +57,22 @@ export const styles = StyleSheet.create({
     lineHeight: 20,
     letterSpacing: 0.02,
     color: '#000000',
+  },
+  badgeText: {
+    paddingHorizontal: 5,
+    alignItems: 'center',
+    color: '#88A4E8',
+    fontSize: 10,
+    flexDirection: 'row',
+    fontFamily: 'Mulish-Bold',
+    fontWeight: '700',
+  },
+  badgeStyle: {
+    height: 20,
+    paddingHorizontal: 7,
+    justifyContent: 'center',
+    backgroundColor: '#DBE3FF',
+    alignItems: 'center',
+    marginBottom: 6,
   },
 });
